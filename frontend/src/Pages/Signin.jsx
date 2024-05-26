@@ -16,7 +16,7 @@ function Signin({ setToastMessage, setToast }) {
   const loginCall = async (postData) => {
     dispatch({ type: 'LOGIN_START' });
     try {
-      const res = await axios.post(`${API_URL}api/auth/signin`, postData);
+      const res = await axios.post(`${API_URL}/api/auth/signin`, postData);
       await dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
       setToast(true)
       setToastMessage('Login Successfully 🎉')
