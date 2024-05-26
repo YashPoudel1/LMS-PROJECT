@@ -68,17 +68,17 @@ const AddBook = ({ setToast, setToastMessage }) => {
                 }
             })
             if (response.status === 200) {
-                setToastMessage('Book Added Successfully 🎉')
+                setToastMessage('Book Added Successfully ✅')
                 setToast(true)
                 setTimeout(() => {
                     window.location.reload();
                 }, 2000);
             } else {
-                setToastMessage('Failed to add book. Please try again later.');
+                setToastMessage('Failed to add book. Please try again later 😭.');
             }
         }
         catch (err) {
-            setToastMessage('Error Adding Book')
+            setToastMessage('Error Adding Book 😭')
             setToast(true)
         }
         setIsLoading(false)

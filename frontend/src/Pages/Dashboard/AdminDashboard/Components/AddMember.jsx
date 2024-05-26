@@ -62,7 +62,7 @@ function AddMember({ setToastMessage, setToast, setOpen }) {
             }
             try {
                 await axios.post(API_URL + "api/auth/register", userData)
-                setToastMessage('Member Added Successfully 🎉')
+                setToastMessage('Member Added Successfully ✅')
                 setToast(true)
                 setTimeout(() => {
                     window.location.reload();
@@ -70,7 +70,7 @@ function AddMember({ setToastMessage, setToast, setOpen }) {
 
             }
             catch (err) {
-                setToastMessage('Failed Creating Member')
+                setToastMessage('Failed Creating Member 😭')
                 setToast(true)
                 setTimeout(() => {
                     window.location.reload();

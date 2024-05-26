@@ -93,7 +93,7 @@ function Allbooks({ setToastMessage, setToast }) {
   const removeBook = async (bookId) => {
     try {
       await axios.delete(API_URL + "api/books/removebook/" + bookId)
-      setToastMessage('Book Removed Successfully 🎉')
+      setToastMessage('Book Removed Successfully ✅')
       setToast(true)
       setTimeout(() => {
         window.location.reload();

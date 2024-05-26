@@ -19,7 +19,7 @@ function Signin({ setToastMessage, setToast }) {
       const res = await axios.post(`${API_URL}/api/auth/signin`, postData);
       await dispatch({ type: 'LOGIN_SUCCESS', payload: res.data });
       setToast(true)
-      setToastMessage('Login Successfully 🎉')
+      setToastMessage('Login Successfully ✅')
       if (res.data.isAdmin) {
         return navigate('/admin');
       } else {

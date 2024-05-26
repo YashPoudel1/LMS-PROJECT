@@ -36,7 +36,7 @@ function AddTransaction({ setToastMessage, setToast }) {
             }
             try {
                 await axios.post(API_URL + "api/transactions/add-transaction", transactionData)
-                setToastMessage('Transaction Added Successfully 🎉')
+                setToastMessage('Transaction Added Successfully ✅')
                 setToast(true)
 
                 setTimeout(() => {
@@ -44,7 +44,7 @@ function AddTransaction({ setToastMessage, setToast }) {
                 }, 2000);
             }
             catch (err) {
-                setToastMessage('Error Adding Transaction')
+                setToastMessage('Error Adding Transaction 😭')
                 setToast(true)
                 setTimeout(() => {
                     window.location.reload();

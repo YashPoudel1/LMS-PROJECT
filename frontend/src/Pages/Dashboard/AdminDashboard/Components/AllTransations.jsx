@@ -57,14 +57,14 @@ const AllTransations = ({ setToastMessage, setToast }) => {
   const removeTransaction = async (transactionId) => {
     try {
       await axios.delete(API_URL + "api/transactions/remove-transaction/" + transactionId)
-      setToastMessage('Transactions Removed Successfully 🎉')
+      setToastMessage('Transactions Removed Successfully ✅')
       setToast(true)
       setTimeout(() => {
         window.location.reload();
       }, 2000);
     }
     catch (err) {
-      setToastMessage('Error Removing Transaction')
+      setToastMessage('Error Removing Transaction 😭')
       setToast(true)
     }
   }
