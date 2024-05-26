@@ -55,7 +55,7 @@ function Allbooks({ setToastMessage, setToast }) {
 
   const fetchAllBooks = async () => {
     try {
-      const response = await axios.get(`${API_URL}api/books/allbooks`);
+      const response = await axios.get(`${API_URL}/api/books/allbooks`);
       setAllBooks(response.data);
       books = response.data
       setRecentAddedBooks(response.data.slice(0, 15));
