@@ -44,6 +44,8 @@ const BookDetails = () => {
             <span className='bookTitle'>  Copies Avaliable :</span> <span className='book-name'>{bookDetails?.bookCountAvailable}</span></p>
           <p className='my-3' >
             <span className='bookTitle'>  Publisher :</span> <span className='book-name'>{bookDetails?.publisher}</span></p>
+            <p className='my-3' >
+            <span className='bookTitle'>  Language :</span> <span className='book-name'>{bookDetails?.language}</span></p>
         </div>
         <div className='desc'>
           <p className='bookTitle'>Summary:</p>
