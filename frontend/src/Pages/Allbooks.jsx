@@ -41,7 +41,7 @@ function Allbooks({ setToastMessage, setToast }) {
   useEffect(() => {
     const fetchAllUsers = async () => {
       try {
-        const response = await axios.get(`${API_URL}api/users/allusers`);
+        const response = await axios.get(`${API_URL}/api/users/allusers`);
         const data = response.data.filter(d => d.isAdmin);
         setAllUsers([...data, { _id: 'none', userFullName: 'All' }])
       } catch (err) {
