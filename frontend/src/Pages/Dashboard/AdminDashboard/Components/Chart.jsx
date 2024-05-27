@@ -7,7 +7,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 const Chart = () => {
   const [data, setData] = useState([])
 
-  const API_URL = 'https://backend-hhb9.onrender.com/';
+  const API_URL = 'http://localhost:5000/';
 
 
   const fetchAllBooks = async () => {

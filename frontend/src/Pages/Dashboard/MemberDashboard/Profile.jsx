@@ -28,7 +28,7 @@ const Profile = () => {
       <div className="user-details-topbar">
         <img
           className="user-profileimage"
-          src=""
+          src="../../../../assets/images/Profile.png"
           alt=""
         ></img>
         <div className="user-info">

@@ -1,14 +1,14 @@
 const AuthReducer = (state, action) => {
-    switch (action.type) {
+    switch (action?.type) {
         case "LOGIN_START":
             return {
-                user: action.payload,
+                user: action?.payload,
                 isLoading: true,
                 error: false
             };
         case "LOGIN_SUCCESS":
             return {
-                user: action.payload,
+                user: action?.payload ?? '',
                 isLoading: false,
                 error: false
             };

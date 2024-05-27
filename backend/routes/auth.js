@@ -40,8 +40,8 @@ router.post("/signin", async (req, res) => {
     const user = await User.findOne({
       email: req.body.username
     })
-    if (req.body.username==='yashpoudel23@gmail.com') {
-      res.status(200).json({ isAdmin: true, user: { user_id: user[0]._id, username: req?.body?.username, role: "superadmin" }, success: true });
+    if (user.isAdmin) {
+      res.status(200).json({ isAdmin: true, user: { user_id: user._id, username: req?.body?.username, role: "superadmin" }, success: true });
     } else {
       let user = await User.findOne({
         email: req.body.username,

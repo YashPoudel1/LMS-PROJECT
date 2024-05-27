@@ -58,7 +58,7 @@ function AddTransaction({ setToastMessage, setToast }) {
         const getMembers = async () => {
             try {
                 const response = await axios.get(API_URL + "api/users/allmembers")
-                const all_members = await response.data.map(member => (
+                const all_members = await response.data.filter(data => data?.userType === 'Student').map(member => (
                     { value: `${member?._id}`, text: `${member?.userType === "Student" ? `${member?.userFullName}[${member?.admissionId}]` : `${member?.userFullName}[${member?.employeeId}]`}` }
                 ))
                 setAllMembers(all_members)
