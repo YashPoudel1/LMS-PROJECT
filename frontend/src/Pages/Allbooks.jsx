@@ -71,7 +71,7 @@ function Allbooks({ setToastMessage, setToast }) {
   const fetchFilteredBooks = async (filters = {}) => {
     const { startDate, endDate } = filters;
     try {
-      const response = await axios.get(`${API_URL}api/books/allbooks`, {
+      const response = await axios.get(`${API_URL}/api/books/allbooks`, {
         params: {
           startDate: startDate,
           endDate: endDate
@@ -147,7 +147,7 @@ function Allbooks({ setToastMessage, setToast }) {
         <form onSubmit={(e) => {
           e.preventDefault()
         }}>
-          <input name="searchWord" type='search' placeholder="search" height={'50px'} onChange={(e) => setKeyword(e.target.value)} className="p-3 border-black"></input>
+          <input name="searchWord" type='search' placeholder="search" height={'50px'} onChange={(e) => setKeyword(e.target.value)} className="p-3 border-black input-test"></input>
         </form>
         <div className="form-header-filter">
           <form onSubmit={handleDateFilter} className="filter-form">

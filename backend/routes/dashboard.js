@@ -52,8 +52,7 @@ router.get("/dashboard-counts/:id", async (req, res) => {
 
   try {
     // Run count queries concurrently
-    const [bookCount, reservedCount, issuedCount, fineResult] = await Promise.all([
-      Book.countDocuments({ user_id: userId }),
+    const [reservedCount, issuedCount, fineResult] = await Promise.all([
       BookTransaction.countDocuments({ borrowerId: userId, transactionType: "Reserved" }),
       BookTransaction.countDocuments({ borrowerId: userId, transactionType: "Issued" }),
       BookTransaction.aggregate([
@@ -71,8 +70,7 @@ router.get("/dashboard-counts/:id", async (req, res) => {
     const totalFine = fineResult.length > 0 ? fineResult[0].totalFine : 0;
 
     const data = {
-      books: bookCount,
-      transactions: reservedCount,
+      reserved: reservedCount,
       fine: totalFine,
       issued: issuedCount
     };

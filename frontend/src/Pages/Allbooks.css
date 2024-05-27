@@ -87,3 +87,8 @@
     align-items: center;
     gap: 1rem;
 }
+
+.input-test{
+    border: 1px solid black;
+    border-radius: 20px;
+}

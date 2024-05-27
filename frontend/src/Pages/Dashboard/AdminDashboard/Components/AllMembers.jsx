@@ -9,13 +9,11 @@ function AllMembers() {
 
   const [recentAddedMembers, setRecentAddedMembers] = useState([])
 
-
   useEffect(() => {
     const getMembers = async () => {
       try {
         const response = await axios.get(API_URL + "api/users/allmembers")
-        const recentMembers = await response.data.slice(0, 5)
-        setRecentAddedMembers(recentMembers)
+        setRecentAddedMembers(response.data)
       }
       catch (err) {
         console.log(err)
@@ -47,7 +45,7 @@ function AllMembers() {
               reportData={recentAddedMembers}
               reportTitle="All Members Report"
               type="member"
-              tableHeader={['S.No', 'Member Name', 'Member Type', 'Member Id',]}
+              tableHeader={['S.No', 'Member Name', 'Member Type', 'Member Id', 'Account Created']}
             />
           }
         >
@@ -59,9 +57,10 @@ function AllMembers() {
         <table className='admindashboard-table'>
           <tr>
             <th>S.No</th>
-            <th>Member Type</th>
-            <th>Member ID</th>
             <th>Member Name</th>
+            <th>Member ID</th>
+            <th>Member Type</th>
+            <th>Account Created</th>
             <th>Actions</th>
           </tr>
           {
@@ -69,9 +68,11 @@ function AllMembers() {
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{member.userType}</td>
-                  <td>{member.userType === "Student" ? member.admissionId : member.employeeId}</td>
                   <td>{member.userFullName}</td>
+                  <td>{member.userType === "Student" ? member.admissionId : member.employeeId}</td>
+                  <td>{member.userType}</td>
+
+                  <td>{new Date(member?.createdAt).toISOString().split('T')[0]}</td>
                   <td><button onClick={() => removeUser(member._id)} style={{ color: "red" }}>Delete</button></td>
                 </tr>
               )

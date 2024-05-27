@@ -16,7 +16,7 @@ function GetMember() {
         const getMembers = async () => {
             try {
                 const response = await axios.get(API_URL + "api/users/allmembers")
-                setAllMembersOptions(response.data.map((member) => (
+                setAllMembersOptions(response.data.filter(data=> data?.userType === 'Student').map((member) => (
                     { value: `${member?._id}`, text: `${member?.userType === "Student" ? `${member?.userFullName}[${member?.admissionId}]` : `${member?.userFullName}[${member?.employeeId}]`}` }
                 )))
             }
@@ -113,7 +113,7 @@ function GetMember() {
                 </div>
 
                 <div className="member-activebooks-content" id="activebooks@member">
-                    <p style={{ fontWeight: "bold", fontSize: "22px", marginTop: "22px", marginBottom: "22px" }}>Issued</p>
+                    <p style={{ fontWeight: "bold", fontSize: "22px", marginTop: "22px", marginBottom: "22px" }}>Returned</p>
                     <table className="activebooks-table">
                         <tr>
                             <th>S.No</th>

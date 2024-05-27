@@ -60,7 +60,7 @@ const MyDocument = ({ reportData, reportTitle, tableHeader, type }) => (
         <View style={styles.table}>
           <View style={styles.tableRow}>
             {tableHeader.map((each, idx) => (
-              <View key={idx} style={type === 'transaction' ? styles.tableCol : styles.width25}><Text style={[styles.tableCell, styles.bold]}>{each}</Text></View>
+              <View key={idx} style={type === 'book' ? styles.width25 : styles.tableCol}><Text style={[styles.tableCell, styles.bold]}>{each}</Text></View>
             ))}
           </View>
           {/* Table Content */}
@@ -85,10 +85,11 @@ const MyDocument = ({ reportData, reportTitle, tableHeader, type }) => (
 
           {type === 'member' && reportData?.map((row, index) => (
             <View style={styles.tableRow} key={index}>
-              {<View style={styles.width25}><Text style={styles.tableCell}>{index + 1}</Text></View>}
-              {<View style={styles.width25}><Text style={styles.tableCell}>{row.userFullName}</Text></View>}
-              {<View style={styles.width25}><Text style={styles.tableCell}>{row.userType}</Text></View>}
-              {<View style={styles.width25}><Text style={styles.tableCell}>{row.employeeId ? row.employeeId : row.admissionId}</Text></View>}
+              {<View style={styles.tableCol}><Text style={styles.tableCell}>{index + 1}</Text></View>}
+              {<View style={styles.tableCol}><Text style={styles.tableCell}>{row.userFullName}</Text></View>}
+              {<View style={styles.tableCol}><Text style={styles.tableCell}>{row.userType}</Text></View>}
+              {<View style={styles.tableCol}><Text style={styles.tableCell}>{row.employeeId ? row.employeeId : row.admissionId}</Text></View>}
+              {<View style={styles.tableCol}><Text style={styles.tableCell}>{new Date(row.createdAt).toISOString().split('T')[0]}</Text></View>}
             </View>
           ))}
         </View>

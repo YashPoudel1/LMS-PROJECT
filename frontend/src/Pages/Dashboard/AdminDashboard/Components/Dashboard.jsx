@@ -25,13 +25,13 @@ function Dasboard({ data, type = 'admin' }) {
             </div>
             <div className="dashboard-title-line"></div>
             <div className="card__list">
-                {type === 'admin' && <CardItem title={"Total Members"} count={data?.user ?? 0} />}
-                <CardItem title={"Total Books"} count={data?.book ?? 0} />
+                {type === 'admin' && <CardItem title={"Total Users"} count={data?.user ?? 0} />}
+                {type === 'admin' && <CardItem title={"Total Books"} count={data?.book ?? 0} />}
                 <CardItem title={"Total Transaction"} count={data?.transaction ?? 0} />
                 {type === 'admin' && <CardItem title={"Total Authors"} count={data?.auther ?? 0} />}
                 {type === 'admin' && <CardItem title={"Total Categories"} count={data?.categories ?? 0} />}
                 <CardItem title={"Total Fine"} count={`Rs ${data?.fine ?? 0}`} />
-                <CardItem title={"Total Issued Books"} count={data?.issued ?? 0} />
+                <CardItem title={"Total Returned Books"} count={data?.issued ?? 0} />
                 <CardItem title={"Total Reserved Books"} count={data?.reserved ?? 0} />
 
             </div>

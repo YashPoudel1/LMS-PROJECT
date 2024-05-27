@@ -26,7 +26,7 @@ const Active = () => {
 
   return (
     <div className="member-activebooks-content" id="activebooks@member">
-      <p className="member-dashboard-heading">Issued</p>
+      <p className="member-dashboard-heading">Returned</p>
       <table className="activebooks-table">
         <tr>
           <th>S.No</th>

@@ -128,7 +128,7 @@ export default function MiniDrawer() {
       icon: <AccountCircle />
     },
     {
-      label: "Issued",
+      label: "Returned",
       href: "/member/issued",
       icon: <LibraryBooksIcon />
     },
