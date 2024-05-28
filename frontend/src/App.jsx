@@ -75,10 +75,10 @@ function App() {
         <Route path="/admin" element={<Layout />}>
           <Route path="" element={<AdminDashboard />} />
           <Route path="addbook" element={<AddBook setToastMessage={setToastMessage} setToast={setToast} />} />
-          <Route path="allbooks" element={<Allbooks />} />
-          <Route path="alltransactions" element={<AllTransations />} />
+          <Route path="allbooks" element={<Allbooks setToastMessage={setToastMessage} setToast={setToast} />} />
+          <Route path="alltransactions" element={<AllTransations setToastMessage={setToastMessage} setToast={setToast} />} />
           <Route path="addtransaction" element={<AddTransaction setToastMessage={setToastMessage} setToast={setToast} />} />
-          <Route path="allmembers" element={<AllMembers />} />
+          <Route path="allmembers" element={<AllMembers setToastMessage={setToastMessage} setToast={setToast} />} />
           <Route path="addmember" element={<AddMember setToastMessage={setToastMessage} setToast={setToast} />} />
           <Route path="getmember" element={<GetMember />} />
           <Route path="returntransaction" element={<Return />} />

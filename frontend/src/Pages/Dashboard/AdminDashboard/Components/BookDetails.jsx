@@ -41,7 +41,7 @@ const BookDetails = () => {
             <span className='bookTitle'>  Book Name :</span> <span className='book-name'>{bookDetails?.bookName}</span></p>
           <p className='my-3'> <span className='bookTitle'>Author :</span> <span className='book-name'>{bookDetails?.author}</span> </p>
           <p >
-            <span className='bookTitle'>  Copies Avaliable :</span> <span className='book-name'>{bookDetails?.bookCountAvailable}</span></p>
+            <span className='bookTitle'>  Total Copies :</span> <span className='book-name'>{bookDetails?.totalCopies}</span></p>
           <p className='my-3' >
             <span className='bookTitle'>  Publisher :</span> <span className='book-name'>{bookDetails?.publisher}</span></p>
             <p className='my-3' >

@@ -58,7 +58,7 @@ function Allbooks({ setToastMessage, setToast }) {
       const response = await axios.get(`${API_URL}/api/books/allbooks`);
       setAllBooks(response.data);
       books = response.data
-      setRecentAddedBooks(response.data.slice(0, 15));
+      setRecentAddedBooks(response.data.slice(0, 100));
     } catch (err) {
       console.error("Failed to fetch books:", err);
     }
@@ -92,7 +92,7 @@ function Allbooks({ setToastMessage, setToast }) {
 
   const removeBook = async (bookId) => {
     try {
-      await axios.delete(API_URL + "api/books/removebook/" + bookId)
+      await axios.delete(API_URL + "/api/books/removebook/" + bookId)
       setToastMessage('Book Removed Successfully ✅')
       setToast(true)
       setTimeout(() => {
@@ -209,7 +209,7 @@ function Allbooks({ setToastMessage, setToast }) {
                   <td>{book.bookName}</td>
                   <td>{book.author}</td>
                   <td>{book.createdAt.slice(0, 10)}</td>
-                  <td><button onClick={() => removeBook(book._id)} style={{ color: "red" }}>delete</button></td>
+                  <td><button onClick={() => removeBook(book._id)} style={{ color: "red" }}>Delete</button></td>
                 </tr>
               )
             })

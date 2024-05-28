@@ -34,29 +34,30 @@ const AllTransations = ({ setToastMessage, setToast }) => {
     const getTransactions = async () => {
       try {
         const response = await axios.get(API_URL + "api/transactions/all-transactions")
-        const value = response.data.splice(0, 15).map(e => ({
-          _id: e._id,
-          bookName: e.bookId.bookName,
-          borrowerName: e.borrowerId.userFullName,
-          transactionDate: e.createdAt,
-          returnedDate: e.returnDate,
-          borrowerId: e.borrowerId._id,
-          transactionType: e.transactionType
+        const value = response.data.splice(0, 20).map(e => ({
+          _id: e?._id,
+          bookId: e?.booId?._id,
+          bookName: e?.bookId?.bookName,
+          borrowerName: e?.borrowerId?.userFullName,
+          transactionDate: e?.createdAt,
+          returnedDate: e?.returnDate,
+          borrowerId: e?.borrowerId?._id,
+          transactionType: e?.transactionType
         })
         )
         setRecentTransactions(value)
       }
       catch (err) {
-        console.log("Error in fetching transactions")
+        console.log("Error in fetching transactions", err)
       }
     }
     getTransactions()
-  }, [API_URL])
+  }, [])
 
 
   const removeTransaction = async (transactionId) => {
     try {
-      await axios.delete(API_URL + "api/transactions/remove-transaction/" + transactionId)
+      await axios.delete(API_URL+"api/transactions/remove-transaction/" + transactionId)
       setToastMessage('Transactions Removed Successfully ✅')
       setToast(true)
       setTimeout(() => {
@@ -81,6 +82,7 @@ const AllTransations = ({ setToastMessage, setToast }) => {
           })
           const value = response.data.splice(0, 15).map(e => ({
             _id: e._id,
+            bookId:e?.bookId?._id,
             bookName: e.bookId.bookName,
             borrowerName: e.borrowerId.userFullName,
             transactionDate: e.createdAt,
@@ -100,7 +102,7 @@ const AllTransations = ({ setToastMessage, setToast }) => {
 
   const handleReturnBook = async (transaction) => {
     await axios.post(API_URL + `api/transactions/update-transaction/${transaction._id}`, {
-      bookId: transaction._id,
+      bookId: transaction.bookId,
       borrowerId: transaction.borrowerId
     })
 

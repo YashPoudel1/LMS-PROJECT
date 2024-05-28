@@ -76,6 +76,7 @@ function AddTransaction({ setToastMessage, setToast }) {
         const getallBooks = async () => {
             const response = await axios.get(API_URL + "api/books/avaliableBooks")
             setCount(response.data)
+            console.log(response.data.length)
             const allbooks = await response.data.map(book => (
                 { value: `${book._id}`, text: `${book.bookName}` }
             ))
@@ -117,7 +118,6 @@ function AddTransaction({ setToastMessage, setToast }) {
                         <th>Reserved</th>
                     </tr>
                     <tr>
-                        {console.log(bookCounts?.find(book => book))}
                         <td>
                             {bookCounts?.find(book => book._id === bookId)?.bookCountAvailable}
                         </td>

@@ -62,7 +62,7 @@ router.post("/add-transaction", async (req, res) => {
 
 router.get("/all-transactions", async (req, res) => {
     try {
-        const transactions = await BookTransaction.find({})
+    const transactions = await BookTransaction.find({})
             .sort({ _id: -1 })
             .populate('bookId')
             .populate('borrowerId');
